@@ -10,6 +10,7 @@
 	- w.x+b = 0
 	- w.x+b>0 --> y=1
 	- w.x+b<0 --> y=0
+
 5- Cost Function for Logistic Regression
 	- mean square is not good for logistic regression --> beacuse made it non-convex
 	- Loss function:
@@ -25,3 +26,29 @@
 	- finding learning rate is still our challenge
 	- don't forget feature scaling
 	- vectorization is still important
+
+7- Overfitting(high variance) Vs. Underfitting(high bias)
+	- low features --> overfit
+	- many features --> overfit
+
+8- Addressing Overfitting
+	- collect more training data
+		+ problem: have few datas
+	- use feautre features --> use small subset of features
+		+ disadvantages: throwing away some of features
+	- regularization
+
+8- regularization
+	- way to reduce impact of some features by eliminate it
+	- regularization term: (lambda/2m)*( sigma(w(j)^2) ) 	, lambda>0
+		+ if lambda = 0 --> no regularization
+		+ if lambda = very very large --> w(j) near to 0 --> f(x)=b
+	- Regularization for Cost Function (linear regression and logistic regression):
+		+ J(w,b) = J(w,b) + (lambda/2m)*( sigma(w(j)^2) ) + (lambda/2m)*( b^2 ) 
+		+ J(w,b) = J(w,b) + (lambda/2m)*( sigma(w(j)^2) ) [we used]
+	- Regularization for Linear Regression 
+		+ dj_dw = (1/m)(sigma[ (f(x(i))-y(i))*x(i,j) ]+(lambda/m)*(w(j))
+	- Regularization for Logistic Regression 
+		+ dj_dw = (1/m)(sigma[ (f(x(i))-y(i))*x(i,j) ]+(lambda/m)*(w(j))
+	- Reguularization for gradient descent
+		+ wj = wj(1-(alpha/lambda)) - [same as before]     j=1,...,m
