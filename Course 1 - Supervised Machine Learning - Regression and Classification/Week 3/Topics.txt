@@ -22,4 +22,6 @@
 
 6- Gradient Descent for Logistic Regression
 	- same as before
-	-
+	- finding learning rate is still our challenge
+	- don't forget feature scaling
+	- vectorization is still important
