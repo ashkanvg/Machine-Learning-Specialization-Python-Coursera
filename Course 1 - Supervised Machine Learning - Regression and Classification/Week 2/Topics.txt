@@ -1,0 +1,15 @@
+1- Multiple Linear Regression 
+2- Vecotrization
+3- Gradient Descent for multiple linear regression
+4- Normal Equation Method
+5- Gradient Descent in Practice (CODE)
+6- Feature Scaling
+	- divid by maximum	--> x/max
+	- normal		--> (x-mu)/(max-min)
+	- standard division 	--> (x-mu)/sigma
+6- Plot: Learnig Curve		--> plot cost-iteration
+	- if increasing per a single iteration --> large learnign rate or bug
+7- Feature Engineering
+	- create new feature from our available features
+8- Polynomial Regression --> non-linear function
+9- Linear Regression with scikit-learn

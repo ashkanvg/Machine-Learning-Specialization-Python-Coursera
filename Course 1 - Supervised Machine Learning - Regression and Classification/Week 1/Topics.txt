@@ -1,0 +1,5 @@
+1- What is Machine Learning
+2- Supervised Learning vs. Unsupervised Learning
+3- Linear Regression
+4- Cost Function
+5- Gradient Descent for Linear Regression

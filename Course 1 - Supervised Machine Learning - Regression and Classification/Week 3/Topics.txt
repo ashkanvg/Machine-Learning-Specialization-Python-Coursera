@@ -1,0 +1,25 @@
+1- Classification 
+2- Binary Classification
+	- 0/1	False/True
+3- Classification with Logistic Regression 
+	- logistic regresiion
+	- sigmoid function
+		+ g(z) = 1/(1+e^(-z)) 		0<g(z)<1   
+		+ z = w.x+b
+4- Decision Boundary
+	- w.x+b = 0
+	- w.x+b>0 --> y=1
+	- w.x+b<0 --> y=0
+5- Cost Function for Logistic Regression
+	- mean square is not good for logistic regression --> beacuse made it non-convex
+	- Loss function:
+		+ if y(i)=1 --> L( f(x(i)),y(i) ) = -log( f(x(i) )
+		+ if y(i)=0 --> L( f(x(i)),y(i) ) = -log( 1 - f(x(i) )
+	- simple loss function:
+		+ L( f(x(i)),y(i) ) = -y*log( f(x(i) ) - (1-y)*log( 1 - f(x(i) )
+	- Cost:
+		+ J(w,b) = sigma( L( f(x(i)),y(i) ) ) * (1/m)
+
+6- Gradient Descent for Logistic Regression
+	- same as before
+	-
