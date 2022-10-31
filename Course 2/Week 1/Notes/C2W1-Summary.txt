@@ -1,0 +1,33 @@
+1- What is Neural Networks and Deep Learning
+2- Demand Prediction
+	- Ex: finding top sellers
+	- layer
+		- input layer
+		- hidden layers
+		- output layer
+	- activation
+
+	(picture 1,2,3)
+
+4- Recognizing Images
+	- Example
+
+	
+
+5- Neural Netwrok Layer
+	- [] --> refer to number of layer
+	- input layers number -> 0 --> input vector (x) is a[0]
+	- if final layer output a^[2] > 0.5 --> yes  else No
+	(picture 4,5)
+	- aj^[l]=g(wj[l].a[l-1]+bj[l])
+		+ l: layer number
+		+ j: unit number of a layer
+		+ w,b parameter of layer l and unit j
+		+ g: sigmoid function --> now we saye "activation function" 
+	(picture 6,7)
+	
+
+6- Neural Networks Inference (Making Predictions) by Forward Propagation
+
+
+7- Tensorflow and Keras
