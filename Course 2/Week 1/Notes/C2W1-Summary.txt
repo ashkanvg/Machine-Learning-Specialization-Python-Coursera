@@ -96,3 +96,14 @@
 		+ model.get_layer("layer1").set_weights([W1,b1])	# set weights
 		+ model.get_layer("layer2").set_weights([W2,b2])	# set weights
 
+
+9-Neural Network implementation in Python
+	(picture 10,11) (lab: C2_W1_Lab03_CoffeeRoasting_Numpy)
+	- notation:
+		+ capital W refer to Matrix
+		+ small w refer to vector
+
+10- AGI: Aritficial general Interlligence
+11- Vectorization
+	- At = A.T (in python)
+	- Z = AT @ W (or Z=np.matmul(AT.W)) 
