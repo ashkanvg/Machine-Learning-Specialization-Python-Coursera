@@ -1,59 +1,104 @@
 1- Train a Neural Network in Tensorflow
-	model = Sequential ([]) 		// same as before
-	model.compile(loss=BinaryCrossentropy())
+		model = Sequential ([]) 		// same as before
+		model.compile(loss=BinaryCrossentropy())
 			// we can use different loss function:
 				--> Ex. MeanSquaredError() --> linear regression
 				--> Ex. BinaryCrossentropy() --> Binary Classification
-	model.fit(X,Y,epochs=100) 		// epoche --> number of steps in gradient descent
+		model.fit(X,Y,epochs=100) 		// epoche --> number of steps in gradient descent
 
-2- Training Details: 
-	Steps:
-		1. define model
-		2. specify loss (L(f,y)) and cost (J(w,b)
-		3. Train on data to minimize J(w,b)
+	-Training Details: 
+		Steps:
+			1. define model
+			2. specify loss (L(f,y)) and cost (J(w,b)
+			3. Train on data to minimize J(w,b)
 
-		# example in logistic regression:
-		1. 	z=np.dot(w,x)+b
-			f_X = 1/(1+np.exp(-z))
-		2. 	los = -y*np.log(f_x) -(1-y)*np,log(1-f_x)
-		3. 	w = w - alpha * dj_dw
-			b - b - alpha * dj_db
+			# example in logistic regression:
+			1. 	z=np.dot(w,x)+b
+				f_X = 1/(1+np.exp(-z))
+			2. 	los = -y*np.log(f_x) -(1-y)*np,log(1-f_x)
+			3. 	w = w - alpha * dj_dw
+				b - b - alpha * dj_db
 
-		# example in NN
-		1. model = sequentioal ([])
-		2. model.compile()
-		3. model.fit()
+			# example in NN
+			1. model = sequentioal ([])
+			2. model.compile()
+			3. model.fit()
 
 
-3. Activation Function Types
-	- linear
-		g(z) = z
-		activation = 'linear'
-	- Sigmoid 
-		g(z) = 1/(1+exp(-z))
-		activation = 'sigmoid'
-	- ReLU:
-		g(z) = max(0,z)
-			if z < 0 --> g(z) = 0
-			else 	 --> g(z) = z
-		activation = 'relu'
+2. Activation Function
+	- Types:
+		+ linear
+			g(z) = z
+			activation = 'linear'
+		+ Sigmoid 
+			g(z) = 1/(1+exp(-z))
+			activation = 'sigmoid'
+		+ ReLU:
+			g(z) = max(0,z)
+				if z < 0 --> g(z) = 0
+				else 	 --> g(z) = z
+			activation = 'relu'
 		
-4- Which Activation Function used?
-	- we can choose different function for different neuron
-	for y (final output):
-	- if we have binary out put --> binary classification problem 	--> sigmoid
-	- if we have regreesion	    --> linear regression 		--> linear activation
-	- if y recieve only non-negetive value --> linear regressiong(+)--> ReLU
+	- Which Activation Function used?
+		+ we can choose different function for different neuron
+		for y (final output):
+		+ if we have binary out put --> binary classification problem 	--> sigmoid
+		+ if we have regreesion	    --> linear regression 		--> linear activation
+		+ if y recieve only non-negetive value --> linear regressiong(+)--> ReLU
 	
-	for Hidden Layer:
-	- most of times we prefer use ReLU
-	- because learn faster
+		for Hidden Layer:
+		+ most of times we prefer use ReLU
+		+ because learn faster
 
-	we have other activation function:
-	- LeakyReLU
-	- Tan 
-5- Why do we need acitvation functions?
-	- it would be convert to Linear Regression and multiple layers doesn't work
+		we have other activation function:
+		+ LeakyReLU
+		+ Tan 
+
+
+
+	- Why do we need acitvation functions?
+		+ it would be convert to Linear Regression and multiple layers doesn't work
 
 	
+
+3- Multiclass Classification
+	more possible classes --> target y can take more than two numbers
+	
+	- Softmax Regression:
+		+ solve problem for each wanted output
+			Ex: for 4 output (picture 2)	
+		+ for N possible outputs:
+			z_j = w_j.x + b_j         			j=1,...,N
+			a_j = exp(z_j)/(sigma(exp(z_k)) = P(y=j|x)	j=1,...,N
+		(picture 2)
+	- Cost for Softmax Regression
+		(picture 3)
+	- Neural Network with Softmax Output
+		(picture 4)
+	- MNIST with softmax CODE (not reccomended and don't use this code)
+		1. model = sequential([
+			Dense(units=25,activation='relu'),
+			Dense(units=15,activation='relu'),
+			Dense(units=10,activation='softmax'),		
+		])	
+		2. model.compile( loss=SparseCategoricalCrossentropy() )
+		3. model.fit(X,Y,epoches=100)
+
+
+	- Improved Implementation of Softmax --> handle the problem of Numerical Roundoff Errors
+		1. model = sequential([
+			Dense(units=25,activation='relu'),
+			Dense(units=15,activation='relu'),
+			Dense(units=10,activation='linear'),		
+		])	
+		2. model.compile( loss=SparseCategoricalCrossEntropy(from_logits=True) ) 
+				// BinaryCrossEntropy(from_logits=True) for logestic regression
+		3. model.fit(X,Y,epoches=100)
+
+
+		(picture 5)
+
+	
+
+	- Multi-label Classification
 	
