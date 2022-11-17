@@ -1,0 +1,59 @@
+1- Train a Neural Network in Tensorflow
+	model = Sequential ([]) 		// same as before
+	model.compile(loss=BinaryCrossentropy())
+			// we can use different loss function:
+				--> Ex. MeanSquaredError() --> linear regression
+				--> Ex. BinaryCrossentropy() --> Binary Classification
+	model.fit(X,Y,epochs=100) 		// epoche --> number of steps in gradient descent
+
+2- Training Details: 
+	Steps:
+		1. define model
+		2. specify loss (L(f,y)) and cost (J(w,b)
+		3. Train on data to minimize J(w,b)
+
+		# example in logistic regression:
+		1. 	z=np.dot(w,x)+b
+			f_X = 1/(1+np.exp(-z))
+		2. 	los = -y*np.log(f_x) -(1-y)*np,log(1-f_x)
+		3. 	w = w - alpha * dj_dw
+			b - b - alpha * dj_db
+
+		# example in NN
+		1. model = sequentioal ([])
+		2. model.compile()
+		3. model.fit()
+
+
+3. Activation Function Types
+	- linear
+		g(z) = z
+		activation = 'linear'
+	- Sigmoid 
+		g(z) = 1/(1+exp(-z))
+		activation = 'sigmoid'
+	- ReLU:
+		g(z) = max(0,z)
+			if z < 0 --> g(z) = 0
+			else 	 --> g(z) = z
+		activation = 'relu'
+		
+4- Which Activation Function used?
+	- we can choose different function for different neuron
+	for y (final output):
+	- if we have binary out put --> binary classification problem 	--> sigmoid
+	- if we have regreesion	    --> linear regression 		--> linear activation
+	- if y recieve only non-negetive value --> linear regressiong(+)--> ReLU
+	
+	for Hidden Layer:
+	- most of times we prefer use ReLU
+	- because learn faster
+
+	we have other activation function:
+	- LeakyReLU
+	- Tan 
+5- Why do we need acitvation functions?
+	- it would be convert to Linear Regression and multiple layers doesn't work
+
+	
+	
